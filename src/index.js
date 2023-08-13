@@ -22,8 +22,8 @@ function createOptionList(array) {
 
 function createCatView({ url, height, width, name, temperament, description }) {
   refs.catInfo.innerHTML = `
-     <img src="${url}" alt="${name}" class="cat-image" />
-     <div class="card">
+     <img src="${url}" alt="${name}" class="cat-image"  />
+     <div class="card"> 
      <h1 class="name">${name}</h1>
       <p class="description">${description}</p>
       <p class="temperament"><span class="h-temp">Temperament: </span>${temperament}</p>
@@ -37,7 +37,7 @@ showLoader();
 fetchBreeds()
   .then(createOptionList)
   .catch(x => {
-    showerror();
+    showError();
   })
   .finally(() => {
     showLoader(false);
@@ -50,7 +50,7 @@ refs.breedSelect.addEventListener('change', event => {
     .then(createCatView)
     .catch(x => {
       showCatInfo(false);
-      showerror();
+      showError();
     })
     .finally(() => {
       showLoader(false);
